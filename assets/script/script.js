@@ -24,13 +24,28 @@ function writePassword() {
     const up = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     const num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const char = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\" , "]", "^", "_", "`", "{", "|", "}", "~"]
-    const array1 = low.concat(num).join("");
-    return array1
+    let caseLower = confirm("Do you want lowercase numbers");
+    let caseUpper = confirm("Do you want uppercase numbers");
+    let caseNum = confirm("Do you want numbers?");
+    let caseSpecial = confirm("Do you want special characters");
+
+    if (caseLower) {
+      //const array1 = low.concat(char).join("");
+      const array1 = array1.concat(low).join("");
+      //ask uppercase
+    }
+      if (caseUpper) {
+      const array1 = array1.concat(up).join("");
+      }
+        if (caseNum){
+          const array1 = array1.concat(num).join("");
+        }
+          if (caseSpecial) {
+            const array1 = array1.concat(char).join("");
+          }
   }
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  
-    
   passwordText.value = password;
   
 
