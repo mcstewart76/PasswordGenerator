@@ -16,11 +16,14 @@
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
- var low = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+  var low = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var up = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
   var char = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\" , "]", "^", "_", "`", "{", "|", "}", "~"]
   var array2 = [];
+  var randomPass = [];
+
 // Write password to the #password input
 function writePassword() {
    
@@ -31,12 +34,13 @@ function writePassword() {
 function generatePassword() {
   NumberOfCharacters = prompt("Enter a number between 8 and 128");
   if (NumberOfCharacters <=128 && NumberOfCharacters >= 8){
-  console.log("Is between 8 and 128"+ NumberOfCharacters)
+  console.log("The number of characters is "+ NumberOfCharacters)
 
   }else{
     alert("Please enter a value between 8 and 128.")
     return "Please enter a value between 8 and 128."
   } 
+
   let caseLower = confirm("Do you want lowercase letters");
   console.log("CaseLower " + caseLower);
   let caseUpper = confirm("Do you want uppercase letters");
@@ -45,46 +49,52 @@ function generatePassword() {
   console.log("CaseNum " + caseNum);
   let caseSpecial = confirm("Do you want special characters");
   console.log("CaseSpec " + caseSpecial);
-  // function amountOfCharacters(charactersnum){
-  //     var charactersnum = prompt("How many characters do you want your password");
-  if (caseLower || caseUpper || caseNum || caseSpecial){
 
-  }else{
-    alert("Please select at least one character type")
-    return "Please select at least one character type"
-  }
   if (caseLower) {
     console.log("Inside if CaseLower ");
     // const array2 = low.concat(char).join("");
-  array2 = array2.concat(low).join("");
-    
+  array2 = array2.concat(low); 
   }
-  console.log(array2)
+
+  // console.log(array2)
+
     if (caseUpper) {
-      console.log("Inside if CaseUp ");
-    array2 = array2.concat(up).join("");
+      console.log("Inside if statement CaseUp ");
+    array2 = array2.concat(up);
     
     }
-    console.log(array2)
+
+    // console.log(array2)
+
       if (caseNum){
-        console.log("Inside if CaseNum ");
-        array2 = array2.concat(num).join("");
+        console.log("Inside if statement CaseNum ");
+        array2 = array2.concat(num);
         
       }
-      console.log(array2)
+
+      // console.log(array2)
+
         if (caseSpecial) {
-          console.log("Inside if CaseSpec ");
-          array2 = array2.concat(char).join("");
+          console.log("Inside if statment CaseSpec ");
+          array2 = array2.concat(char);
           
-        }  
+        }
+
+        // console.log(array2)
+        
+        for(let i=0; i < NumberOfCharacters; i++){
+          partPass = array2[Math.floor(Math.random()*array2.length)]
+         randomPass = randomPass.concat(partPass)
+          console.log(randomPass)
+        }
+  
         console.log(array2)
-     return array2  
-
+        var finalPass = randomPass.join("");
+        randomPass.splice(0,randomPass.length);
+        array2.splice(0,array2.length);
+        return finalPass;
     
-
 } 
-// return array1.join("");
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
