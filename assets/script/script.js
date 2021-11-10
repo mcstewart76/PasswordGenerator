@@ -47,11 +47,16 @@ function generatePassword() {
   console.log("CaseSpec " + caseSpecial);
   // function amountOfCharacters(charactersnum){
   //     var charactersnum = prompt("How many characters do you want your password");
-  
+  if (caseLower || caseUpper || caseNum || caseSpecial){
+
+  }else{
+    alert("Please select at least one character type")
+    return "Please select at least one character type"
+  }
   if (caseLower) {
     console.log("Inside if CaseLower ");
     // const array2 = low.concat(char).join("");
-  array2 = array2.concat(low);
+  array2 = array2.concat(low).join("");
     
   }
   console.log(array2)
