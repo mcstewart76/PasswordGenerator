@@ -36,6 +36,12 @@ function generatePassword() {
   let caseSpecial = confirm("Do you want special characters");
   console.log("CaseSpec " + caseSpecial);
   //Logic for answers to the questions
+  if (caseLower || caseUpper || caseNum || caseSpecial){
+  }
+  else{
+    alert("You have to select at least one password criteria")
+    return "You have to select at least one password criteria"
+  }
   if (caseLower) {
     //console.log("Inside if CaseLower ");
   array2 = array2.concat(low); 
