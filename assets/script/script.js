@@ -1,19 +1,3 @@
- //GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -31,16 +15,18 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
+// Generate Password function
 function generatePassword() {
+  // Prompts for number of characters wanted in password
   NumberOfCharacters = prompt("Enter a number between 8 and 128");
   if (NumberOfCharacters <=128 && NumberOfCharacters >= 8){
   console.log("The number of characters is "+ NumberOfCharacters)
-
+  //If amount of characters isnt selected properly then it returns 
   }else{
-    alert("Please enter a value between 8 and 128.")
-    return "Please enter a value between 8 and 128."
+    alert("Please enter a numeric value between 8 and 128.")
+    return "Please enter a numeric value between 8 and 128."
   } 
-
+  //Asks user for criteria for password
   let caseLower = confirm("Do you want lowercase letters");
   console.log("CaseLower " + caseLower);
   let caseUpper = confirm("Do you want uppercase letters");
@@ -49,46 +35,41 @@ function generatePassword() {
   console.log("CaseNum " + caseNum);
   let caseSpecial = confirm("Do you want special characters");
   console.log("CaseSpec " + caseSpecial);
-
+  //Logic for answers to the questions
   if (caseLower) {
-    console.log("Inside if CaseLower ");
-    // const array2 = low.concat(char).join("");
+    //console.log("Inside if CaseLower ");
   array2 = array2.concat(low); 
   }
 
   // console.log(array2)
 
     if (caseUpper) {
-      console.log("Inside if statement CaseUp ");
+      //console.log("Inside if statement CaseUp ");
     array2 = array2.concat(up);
-    
     }
 
     // console.log(array2)
 
       if (caseNum){
-        console.log("Inside if statement CaseNum ");
+        //console.log("Inside if statement CaseNum ");
         array2 = array2.concat(num);
-        
       }
 
       // console.log(array2)
 
         if (caseSpecial) {
-          console.log("Inside if statment CaseSpec ");
-          array2 = array2.concat(char);
-          
+          //console.log("Inside if statment CaseSpec ");
+          array2 = array2.concat(char); 
         }
 
         // console.log(array2)
-        
+        //For loop to add random values from array2 to new array
         for(let i=0; i < NumberOfCharacters; i++){
           partPass = array2[Math.floor(Math.random()*array2.length)]
-         randomPass = randomPass.concat(partPass)
-          console.log(randomPass)
+          randomPass = randomPass.concat(partPass)
+          //console.log(randomPass)
         }
-  
-        console.log(array2)
+        //Removes , and "" using join from the array, splice is used here to renew the randomPass and array2 variables.
         var finalPass = randomPass.join("");
         randomPass.splice(0,randomPass.length);
         array2.splice(0,array2.length);
