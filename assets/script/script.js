@@ -80,40 +80,64 @@ function generatePassword() {
           randomPass = randomPass.concat(partPass)
           
           }
-         
-       }  
-       checkVariables();
-        if (caseNum && (randomPass.some(item => num.includes(item)) !== true)){
-         
-          checkVariables();
-
-        }
-        if(caseNum && (randomPass.some(item => num.includes(item)) === true)){
-          var finalPass = randomPass.join("");
-        }
-        
-        // do{
-        //   checkVariables();
-        //   var finalPass = randomPass.join("");
-        //   console.log(finalPass)
-          
-        //   }while (randomPass.some(item => num.includes(item)) !== true)
-          
-        //     console.log("password contains a number")
+            lowPass = randomPass.some(item => low.includes(item))
+            upPass = randomPass.some(item => up.includes(item))
+            numPass = randomPass.some(item => num.includes(item))
+            specPass = randomPass.some(item => char.includes(item))
+            console.log("Is the number pass satisfied?" + numPass)
+            // debugger
+            if (caseLower && lowPass !== true){
+              console.log("not true")
+              for(let i=0; !lowPass; i++){
+              function caller(){
+                checkVariables();
             
+              }
+              caller();
+             } 
+            }if (caseUpper && upPass !== true){
+              console.log("not true")
+              for(let i=0; !upPass; i++){
+              function caller(){
+                checkVariables();
             
-          
+              }
+              caller();
+             } 
+            }if (caseNum && numPass !== true){
+              console.log("not true")
+              for(let i=0; !numPass; i++){
+              function caller(){
+                checkVariables();
+            
+              }
+              caller();
+             } 
+            }if (caseSpecial && specPass !== true){
+              console.log("not true")
+              for(let i=0; !specPass; i++){
+              function caller(){
+                checkVariables();
+            
+              }
+              caller();
+             } 
+            }
+         
+       }
+      checkVariables();
+      if(caseLower === lowPass){
+        var finalPass = randomPass.join("");
+      }if(caseUpper === upPass){
+        var finalPass = randomPass.join("");
+      }if(caseNum === numPass){
+        var finalPass = randomPass.join("");
+      }
+      if(caseSpecial === specPass){
+        var finalPass = randomPass.join("");
+      }
         
-      
-        
-        
-        // for(let i=0; i < NumberOfCharacters; i++){
-        //   partPass = array2[Math.floor(Math.random()*array2.length)]
-        //   randomPass = randomPass.concat(partPass)
-          
-        // }
-      // if(caseNum){randomPass.some(caseNum)}
-          //console.log(randomPass)
+        //console.log(randomPass)
         //Removes , and "" using join from the array, splice is used here to renew the randomPass and array2 variables.
         var checkedPass = finalPass;
         randomPass.splice(0,randomPass.length);
