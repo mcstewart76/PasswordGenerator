@@ -7,6 +7,7 @@ var generateBtn = document.querySelector("#generate");
   var char = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\" , "]", "^", "_", "`", "{", "|", "}", "~"]
   var array2 = [];
   var randomPass = [];
+  
 
 // Write password to the #password input
 function writePassword() {
@@ -20,7 +21,7 @@ function generatePassword() {
   // Prompts for number of characters wanted in password
   NumberOfCharacters = prompt("Enter a number between 8 and 128");
   if (NumberOfCharacters <=128 && NumberOfCharacters >= 8){
-  console.log("The number of characters is "+ NumberOfCharacters)
+  //console.log("The number of characters is "+ NumberOfCharacters)
   //If amount of characters isnt selected properly then it returns 
   }else{
     alert("Please enter a numeric value between 8 and 128.")
@@ -68,18 +69,58 @@ function generatePassword() {
           array2 = array2.concat(char); 
         }
 
-        // console.log(array2)
-        //For loop to add random values from array2 to new array
-        for(let i=0; i < NumberOfCharacters; i++){
+        //console.log(array2)
+       
+       function checkVariables() {
+          
+          partPass = [];
+          randomPass = [];
+          for(let i=0; i < NumberOfCharacters; i++){
           partPass = array2[Math.floor(Math.random()*array2.length)]
           randomPass = randomPass.concat(partPass)
-          //console.log(randomPass)
+          
+          }
+         
+       }  
+       checkVariables();
+        if (caseNum && (randomPass.some(item => num.includes(item)) !== true)){
+         
+          checkVariables();
+
         }
+        if(caseNum && (randomPass.some(item => num.includes(item)) === true)){
+          var finalPass = randomPass.join("");
+        }
+        
+        // do{
+        //   checkVariables();
+        //   var finalPass = randomPass.join("");
+        //   console.log(finalPass)
+          
+        //   }while (randomPass.some(item => num.includes(item)) !== true)
+          
+        //     console.log("password contains a number")
+            
+            
+          
+        
+      
+        
+        
+        // for(let i=0; i < NumberOfCharacters; i++){
+        //   partPass = array2[Math.floor(Math.random()*array2.length)]
+        //   randomPass = randomPass.concat(partPass)
+          
+        // }
+      // if(caseNum){randomPass.some(caseNum)}
+          //console.log(randomPass)
         //Removes , and "" using join from the array, splice is used here to renew the randomPass and array2 variables.
-        var finalPass = randomPass.join("");
+        var checkedPass = finalPass;
         randomPass.splice(0,randomPass.length);
         array2.splice(0,array2.length);
-        return finalPass;
+        console.log(checkedPass)
+        return checkedPass
+        
     
 } 
 
