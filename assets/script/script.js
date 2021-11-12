@@ -70,7 +70,7 @@ function generatePassword() {
         }
 
         //console.log(array2)
-       
+       //Function created to check if the password meets the criteria specified. 
        function checkVariables() {
           
           partPass = [];
@@ -80,12 +80,14 @@ function generatePassword() {
           randomPass = randomPass.concat(partPass)
           
           }
+          //Checks each criteria using arrow function to check randomPass if it has any of the items from the strings
+          //on the right side of the arrow function. Arrow function preferred over two for loops.
             lowPass = randomPass.some(item => low.includes(item))
             upPass = randomPass.some(item => up.includes(item))
             numPass = randomPass.some(item => num.includes(item))
             specPass = randomPass.some(item => char.includes(item))
             console.log("Is the number pass satisfied?" + numPass)
-            // debugger
+            //If statements to rerun Check Variable function. This occurs if selected criteria does not meet arrow functions above.
             if (caseLower && lowPass !== true){
               console.log("not true")
               for(let i=0; !lowPass; i++){
@@ -125,6 +127,8 @@ function generatePassword() {
             }
          
        }
+       //Runs 1st iteration of the randomized password generator
+       //Passes variable finalPass
       checkVariables();
       if(caseLower === lowPass){
         var finalPass = randomPass.join("");
