@@ -15,4 +15,4 @@ A user provided they wanted a password generator that met the following criteria
 
 >**Picture of the site**
 
-![This webpage includes a password generator, that is intuitive and allows the user to select certain criteria for their passwords](./assets/images/PasswordGen.JPG)
+![This webpage includes a password generator, that is intuitive and allows the user to select certain criteria for their passwords](/assets/images/PasswordGen.JPG)
